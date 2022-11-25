@@ -1,0 +1,44 @@
+1.	Create a child theme folder
+2. 	Create a stylesheet: style.css
+	Add this code in style.css (Change this code according to main/parent theme style.css)
+	
+	/*
+ 	Theme Name:   Twenty Fifteen Child
+ 	Theme URI:    http://example.com/twenty-fifteen-child/
+ 	Description:  Twenty Fifteen Child Theme
+ 	Author:       John Doe
+ 	Author URI:   http://example.com
+ 	Template:     twentyfifteen
+ 	Version:      1.0.0
+ 	License:      GNU General Public License v2 or later
+ 	License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ 	Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ 	Text Domain:  twentyfifteenchild
+	*/
+
+3.	Create functions.php: Add this code in functions.php file
+	<?php
+	/**
+	* Astra Child Theme functions and definitions
+	*
+	* @link https://developer.wordpress.org/themes/basics/theme-functions/
+	*
+	* @package Astra Child
+	* @since 1.0.0
+	*/
+
+	/**
+	* Define Constants
+	*/
+	define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '1.0.0' );
+
+	/**
+	* Enqueue styles
+	*/
+	function child_enqueue_styles() {
+
+		wp_enqueue_style( 'astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_ASTRA_CHILD_VERSION, 'all' );
+
+	}
+
+	add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );

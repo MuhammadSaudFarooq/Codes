@@ -1,0 +1,29 @@
+#support-ticket-form form.elementor-form input#form-field-field_cfb41f0::-webkit-file-upload-button {
+  visibility: hidden;
+}
+#support-ticket-form form.elementor-form input#form-field-field_cfb41f0::before {
+    width: 100%;
+  content: 'Attach Files';
+  display: inline-block;
+  background: #fff;
+/*   border: 1px solid #999; */
+  border-radius: 5px;
+  padding: 12px 18px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+/*   text-shadow: 1px 1px #fff; */
+  font-weight: 400;
+  font-size: 14px;
+    background-image: url('https://demowebs.1stopwebsitesolution.com/visionpro/wp-content/uploads/2022/08/attachment-line.png');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 95% 50%;
+}
+#support-ticket-form form.elementor-form input#form-field-field_cfb41f0:hover::before {
+/*   border-color: black; */
+}
+#support-ticket-form form.elementor-form input#form-field-field_cfb41f0:active::before {
+/*   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); */
+}

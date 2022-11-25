@@ -1,0 +1,19 @@
+// CSS
+.woocommerce button[name="update_cart"],
+.woocommerce input[name="update_cart"] {
+	display: none !important;
+}
+
+
+// JS
+jQuery( function( ) {
+	let timeout;
+	jQuery('.woocommerce').on( 'change', 'input.qty', function(){
+		if ( timeout !== undefined ) {
+			clearTimeout( timeout );
+		}
+		timeout = setTimeout(function() {
+			jQuery("[name='update_cart']").trigger("click"); // trigger cart update
+		}, 100 ); // 1 second delay, half a second (500) seems comfortable too
+	});
+} );

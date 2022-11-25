@@ -1,0 +1,20 @@
+-> class-aws-markup.php
+if(is_author()){
+                $msf_authID = '<input type="hidden" name="sty_authid" value="'.get_the_author_meta( 'ID' ).'">';
+            } else{
+                $msf_authID = '';
+            }
+
+
+-> class-aws-search.php
+if(isset($_GET['sty_authid'])){
+                $sty_authid = $_GET['sty_authid'];
+                $cat_ids = implode(",",$posts_ids);
+                $catQuery = "SELECT ID FROM `wpsf_posts` WHERE `ID` IN (".$cat_ids.") AND `post_author` = ".$sty_authid;
+                $search_results_cat = $wpdb->get_results( $catQuery );
+                $posts_ids = [];
+                foreach ($search_results_cat as $catKey => $catValue) {
+                    // $catValue->ID = ;
+                    array_push($posts_ids, $catValue->ID);
+                }
+            }
