@@ -1,5 +1,22 @@
-post_max_size = 40960M 
-upload_max_filesize = 40960M 
-max_execution_time = 999999
-max_input_time = 999999 
+// php.ini file
+post_max_size = 40960M
+upload_max_filesize = 40960M
 memory_limit = 40960M
+max_execution_time = 999999
+max_input_time = 999999
+
+
+// .htaccess file
+php_value upload_max_filesize 40960M
+php_value post_max_size 40960M
+php_value memory_limit 40960M
+php_value max_execution_time 999999
+php_value max_input_time 999999
+
+
+// wp-config.php
+@ini_set( 'upload_max_filesize' , '40960M' );
+@ini_set( 'post_max_size', '40960M');
+@ini_set( 'memory_limit', '40960M' );
+@ini_set( 'max_execution_time', '999999' );
+@ini_set( 'max_input_time', '999999' );
