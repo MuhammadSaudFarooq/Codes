@@ -5,6 +5,6 @@
 <!-- Put in js file -->
 var ajaxurl = document.querySelector('script[data-wpurls="wpurls"]').getAttribute('data-ajaxurl');
 var siteurl = document.querySelector('script[data-wpurls="wpurls"]').getAttribute('data-siteurl');
-$(document).ready(function () {
+jQuery(document).ready(function () {
     // code here...
-})(jQuery);
+});
