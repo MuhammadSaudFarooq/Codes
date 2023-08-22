@@ -1,0 +1,10 @@
+<!-- Attach in footer -->
+<!-- Directory (get_stylesheet_directory_uri(); ?>/js/app.js) -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/app.js?ver=<?php echo rand(9, 9999); ?>" data-wpurls="wpurls" data-ajaxurl="<?php echo admin_url('admin-ajax.php'); ?>" data-siteurl="<?php echo site_url(); ?>"></script>
+
+<!-- Put in js file -->
+var ajaxurl = document.querySelector('script[data-wpurls="wpurls"]').getAttribute('data-ajaxurl');
+var siteurl = document.querySelector('script[data-wpurls="wpurls"]').getAttribute('data-siteurl');
+$(document).ready(function () {
+    // code here...
+})(jQuery);
