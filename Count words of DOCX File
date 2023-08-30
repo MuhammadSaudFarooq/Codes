@@ -7,29 +7,29 @@ require __DIR__ . '/docx/vendor/autoload.php'; // Autoload the phpword library
 use PhpOffice\PhpWord\IOFactory;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["attachment_file"])) {
-  $uploadedFile = $_FILES["attachment_file"]["tmp_name"];
+	$uploadedFile = $_FILES["attachment_file"]["tmp_name"];
 	// Load the DOCX file
 	$phpWord = IOFactory::load($uploadedFile);
 	$content = "";
 	foreach ($phpWord->getSections() as $section) {
-  	foreach ($section->getElements() as $element) {
-		  if ($element instanceof \PhpOffice\PhpWord\Element\Text) {
-			  $content .= $element->getText();
+		foreach ($section->getElements() as $element) {
+			if ($element instanceof \PhpOffice\PhpWord\Element\Text) {
+				$content .= $element->getText();
 			} elseif ($element instanceof \PhpOffice\PhpWord\Element\TextRun) {
-        foreach ($element->getElements() as $text) {
-          if ($text instanceof \PhpOffice\PhpWord\Element\Text) {
-            $content .= $text->getText();
-          }
-        }
+				foreach ($element->getElements() as $text) {
+					if ($text instanceof \PhpOffice\PhpWord\Element\Text) {
+						$content .= $text->getText();
+					}
+				}
 			} elseif ($element instanceof \PhpOffice\PhpWord\Element\TextBreak) {
-        // Include the desired functionality related to TextBreak if needed
-        // For example, you can add a line break to your content
-        $content .= "\n"; // Add a newline to represent the TextBreak
+				// Include the desired functionality related to TextBreak if needed
+				// For example, you can add a line break to your content
+				$content .= "\n"; // Add a newline to represent the TextBreak
 			} elseif ($element instanceof \PhpOffice\PhpWord\Element\Image) {
-				  // Handle images if needed
-			  }
-		  }
-    }
-    // Count words in the extracted text
-    $wordCount = str_word_count(strip_tags($content));
+				// Handle images if needed
+			}
+		}
+	}
+	// Count words in the extracted text
+	$wordCount = str_word_count(strip_tags($content));
 }
